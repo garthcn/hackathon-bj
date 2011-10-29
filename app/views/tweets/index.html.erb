@@ -19,32 +19,30 @@
      });
 });
  $(function () {
-        $("a[rel=popover]").popover({ offset: 10}).click(function(e) {
+        $("p[rel=popover]").popover({ offset: 10}).click(function(e) {
                   e.preventDefault()
                 })
             })
-          
+
   </script>
 <% end %>
 <br/>
 <br/>
-<a href="#" class="btn danger" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">hover for popover</a>
+<a href="#" class="btn danger" rel="popover" data-content="And fasdfsdfsdf fasdfsf?" data-original-title="A Title">hover for popover</a>
+</script>
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
-    <% colors = %w(green blue chreme) %>
-    <% @grouped_tweets.each_with_index do |group, index| %>
+    <% @grouped_tweets.each do |group| %>
       <div class="event">
         <div class="eventHeading <%= colors[index % 3] %>"><%= group[:time].strftime("%Y-%m-%d") %></div>
         <ul class="eventList">
           <% group[:tweets].each do |tweet| %>
             <li class=''>
             <span class="icon" title=""></span>
-            <%= get_short_content(tweet) %>
+			<%=content_tag(:p,get_short_content(tweet), :class => "danger", :rel => "popover", "data-content" => tweet.text, "data-original-title" => "content" )%>
             <div class="content">
               <div class="body">
                 <%= tweet.text %>
-                <br/>
-                <%= get_content(tweet) %>
                 <% if !tweet.bmiddle_pic.blank? %>
                   <img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
                 <% end %>
@@ -61,6 +59,22 @@
     <div class="clear"></div>
   </div>
 
+  <div id="scroll"> <!-- The year time line -->
+    <div id="centered"> <!-- Sized by jQuery to fit all the years -->
+      <div id="highlight"></div> <!-- The light blue highlight shown behind the years -->
+      <% @grouped_tweets.each do |group| %>
+        <div class="scrollPoints"><%= group[:time].strftime("%Y%m%d") %></div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="slider"> <!-- The slider container -->
+    <div id="bar"> <!-- The bar that can be dragged -->
+      <div id="barLeft"></div>  <!-- Left arrow of the bar -->
+      <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
+    </div>
+  </div>
 </div>
 
 <div id="timelineBar">

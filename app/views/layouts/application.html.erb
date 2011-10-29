@@ -4,12 +4,15 @@
     <title>WEDiary</title>
     <%= stylesheet_link_tag 'bootstrap.css', :media => 'screen' %>
     <%= stylesheet_link_tag "timeline.css" %>
+    <%= stylesheet_link_tag "docs.css" %>
+
 
     <%= javascript_include_tag "/javascripts/jquery.min.js" %>
     <%= javascript_include_tag "/javascripts/jquery-ui.min.js" %>
     <%= javascript_include_tag "/javascripts/bootstrap-modal.js" %>
     <%= javascript_include_tag "/javascripts/bootstrap-twipsy.js" %>
     <%= javascript_include_tag "/javascripts/bootstrap-popover.js" %>
+    <%= javascript_include_tag "/javascripts/jquery.bootstrappopover.js" %>
 
     <%= yield :head %>
     <%= csrf_meta_tag %>
