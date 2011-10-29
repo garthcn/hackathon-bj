@@ -52,8 +52,8 @@ div.content{
 .eventHeading{
 	/* The colorful year headings at the top */
 	font-size:2em;
-	margin:-5px -5px 10px;
-	padding:2px 5px;
+	margin:-5px -4px 10px 20px;
+	padding:8px 5px;
 	text-align:center;
 }
 
@@ -80,9 +80,11 @@ div.content{
 #timelineLimiter{
 	/* Hides the overflowing timeline */
 	width:100%;
-	overflow:hidden;
+	overflow-y:hidden;
+    overflow-x:scroll;
 	padding-top:10px;
 	margin:40px 0;
+    max-height: 660px;
 }
 
 #scroll{
@@ -117,6 +119,8 @@ div.content{
 	/* Holds the scroll bar */
 	margin:10px auto;
 	height:25px;
+    width: 100%;
+    text-align: center;
 	display:none;
 }
 
@@ -124,6 +128,8 @@ div.content{
 	/* The scroll bar */
 	background:url(/images/slider_center.png) repeat-x center center;
 	height:25px;
+    margin: auto;
+    position: relative;
 	cursor:pointer;
 }
 
