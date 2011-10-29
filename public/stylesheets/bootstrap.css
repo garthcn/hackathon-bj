@@ -196,7 +196,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   zoom: 1;
-  background-image:url("http://subtlepatterns.com/patterns/grunge_wall.png");
 }
 .container:before, .container:after {
   display: table;
