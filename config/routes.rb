@@ -1,8 +1,9 @@
 WeiboDiary::Application.routes.draw do
   resources :tweets
 
-  resources :users
+  #resources :users
   root :to => "tweets#welcome"
+  match ':controller/:action'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
