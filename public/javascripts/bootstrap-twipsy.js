@@ -81,9 +81,11 @@
         $tip
           .remove()
           .css({ top: 0, left: 0, display: 'block' })
-          .prependTo(document.body)
+          .prependTo(this.$element);
+          //.prependTo(document.body)
+        console.log(this.$element, this.$element.position());
 
-        pos = $.extend({}, this.$element.offset(), {
+        pos = $.extend({}, this.$element.position(), {
           width: this.$element[0].offsetWidth
         , height: this.$element[0].offsetHeight
         })

@@ -75,21 +75,23 @@ function showWindow(data)
 }
 
 function updateTimelineBar() {
-  var ratio = 1.0;
+  var ratio = 0.5;
   var screenWidth = $(document).width();
-  var count = $("#timelineBar .grid").length + 1;
-  var perWidth = screenWidth / count;
-  var paddingWidth = (screenWidth - perWidth * (count-1))/2;
-  $("#timelineBar").css("padding-left", paddingWidth + perWidth/2 + "px");
-  $("#timelineBar").data("left", paddingWidth + perWidth/2);
-  $("#timelineBar").css("padding-right", paddingWidth + "px");
-  $("#timelineBar").width(screenWidth - perWidth/2 - paddingWidth * 2);
+  var count = $("#timelineBar .grid").length;
+  var perWidth = parseInt(screenWidth / count);
+  var less = screenWidth - perWidth * count;
+  var mod = parseInt(count / less);
+  var idx = 0;
   $("#timelineBar .grid").each(function(grid){
-    var width = $(this).attr("count")/ratio;
+    var width = parseInt($(this).attr("count")/ratio);
     if (width < 1) width = 1;
     if (width > perWidth - 2) width = perWidth - 2;
-    $(this).css("border-left-width", width + "px");
-    $(this).css("width", (perWidth - width) + "px");
+    $(this).width(width);
+    var x = 0;
+    if (idx % mod == 1) x = 1;
+    idx += 1;
+    $(this).css("margin-left", Math.floor((perWidth - width + x)/2) + "px");
+    $(this).css("margin-right", Math.ceil((perWidth - width + x)/2) + "px");
   });
   $("#timelineBar").show();
 }
