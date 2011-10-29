@@ -5,10 +5,6 @@ $(document).ready(function(){
 	/* The number of event sections / years with events */
 	var tot=$('.event').length;
 	
-	$('.eventList li').click(function(e){
-			showWindow('<div>'+$(this).find('div.content').html()+'</div>');
-	});
-	
 	/* Each event section is 320 px wide */
 	var timelineWidth = PER_WIDTH*tot;
     var screenWidth = $(document).width();
