@@ -194,18 +194,34 @@ div.content{
 
 #highlight{
 	/* The blue highlight that moves with the scroll bar */
-	height:30px;
+	height:62px;
 	position:absolute;
 	z-index:0;
-	left:0;
-	top:0;
+	left: 5px;
+	top: -3px;
 	
-	background:#E6F8FF;
-	border:1px solid #D4E6EE;
-	border-width:0 1px;
+	background:#222222;
+	border:2px solid #eee4d4;
+    opacity: 0.4;
+    width: 100px;
 }
 
 .clear{
 	clear:both;
 }
 
+#timelineBar {
+  width: 100%;
+  height: 60px;
+  background-color: #e4e4e4;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: none;
+  padding: 0 15px;
+  position: relative;
+}
+.grid {
+  border-left: 1px solid #ddd;
+  height: 100%;
+  float: left;
+}
