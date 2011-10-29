@@ -13,9 +13,25 @@
 ActiveRecord::Schema.define(:version => 20111029090238) do
 
   create_table "tweets", :force => true do |t|
+    t.datetime "wb_created_at"
+    t.integer  "wb_id"
+    t.string   "text"
+    t.integer  "reposts_count",           :default => 0
+    t.integer  "comments_count",          :default => 0
+    t.string   "source"
+    t.boolean  "favorited",               :default => false
+    t.boolean  "truncated",               :default => false
+    t.string   "geo"
+    t.integer  "in_reply_to_status_id",   :default => 0
+    t.integer  "in_reply_to_user_id",     :default => 0
+    t.integer  "in_reply_to_screen_name", :default => 0
+    t.integer  "mid",                     :default => 0
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tweets", ["user_id"], :name => "index_tweets_on_user_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
