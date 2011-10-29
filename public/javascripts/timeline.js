@@ -42,7 +42,7 @@ $(document).ready(function(){
       }
     });
 
-    //$("div.grid").popover({placement: "top"});
+    $("div.grid").popover({placement: "above", offset: 10});
 });
 
 function showWindow(data)

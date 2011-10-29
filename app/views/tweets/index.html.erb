@@ -24,8 +24,7 @@
         $("div[rel=popover]").popover({ offset: 10, html: true, delayOut: 200}).click(function(e) {
                   e.preventDefault()
                 })
-            })
-
+              })
   </script>
 <% end %>
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
@@ -65,10 +64,9 @@
 <div id="timelineBar">
   <div id="highlight"></div>
   <% @grouped_tweets.each do |group| %>
-    <div class="grid" count="<%= group[:tweets].length %>"></div>
     <%= content_tag(:div, "", :count => group[:tweets].length, 
           :class => "grid danger", 
-          "data-content" => group[:time].strftime("%Y-%m-%d"), 
-          "data-title"   => "Total tweet: %d" % group[:tweets].length) %>
+          "data-original-title" => group[:time].strftime("%Y-%m-%d"), 
+          "data-content"   => "Total tweet: %d" % group[:tweets].length) %>
   <% end %>
 </div>
