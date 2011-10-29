@@ -1,7 +1,9 @@
 <div class="topbar">
   <div class="fill">
     <div class="container">
-      <h3><%= link_to "WeDiary", '/', :class => 'logo' %></h3>
+      <a style="float:left; padding-top:7px; padding-right:40px">
+        <%= image_tag "/images/logo.png", :height => '25' %>
+      </a>
       <ul>
         <li class="active"><%= link_to "Home", "/" %></li>
         <li><%= link_to "Friends' Story", "/tweets/friends_timeline" %></li>
