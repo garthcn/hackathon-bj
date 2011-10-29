@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   def authorize
     begin
       @oauth = Weibo::OAuth.new(Weibo::Config.api_key, Weibo::Config.api_secret)
-      @oauth.authorize_from_access(session[:atoken], session[:asecret])
+      if !session[:atoken].blank? && !session[:asecret].blank?
+        @oauth.authorize_from_access(session[:atoken], session[:asecret])
+      else
+        redirect_to "/users/welcome"
+      end
     rescue
       redirect_to "/users/welcome"
     end

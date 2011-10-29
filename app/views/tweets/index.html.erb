@@ -1,10 +1,47 @@
-<h1>Listing your tweets</h1>
-
-<table>
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet[:text] %></td>
-  </tr>
+<% content_for :head do %>
+  <%= javascript_include_tag "timeline.js" %>
 <% end %>
-</table>
+<div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
+  <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
+    <% @tweets.each do |tweet| %>
+      <div class="event">
+        <div class="eventHeading"><%= tweet.created_at %></div>
+        <ul class="eventList">
+          <li class=''>
+          <span class="icon" title=""></span>
+          <%= tweet.text %>
+          <div class="content">
+            <div class="body">
+              <%= tweet.text %>
+            </div>
+            <div class="title"><%= tweet.text %></div>
+            <div class="date"><%= tweet.created %></div>
+          </div>
+
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="clear"></div>
+  </div>
+
+  <div id="scroll"> <!-- The year time line -->
+    <div id="centered"> <!-- Sized by jQuery to fit all the years -->
+      <div id="highlight"></div> <!-- The light blue highlight shown behind the years -->
+      <% @tweets.each do |tweet| %>
+        <div class="scrollPoints"><%= tweet.created_at %></div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="slider"> <!-- The slider container -->
+    <div id="bar"> <!-- The bar that can be dragged -->
+      <div id="barLeft"></div>  <!-- Left arrow of the bar -->
+      <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
+    </div>
+  </div>
+
+</div>
 
