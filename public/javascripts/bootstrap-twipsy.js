@@ -93,17 +93,20 @@
         actualHeight = $tip[0].offsetHeight
 
         placement = maybeCall(this.options.placement, this, [ $tip[0], this.$element[0] ])
-        if(window.event.pageX < 296)
-        {
-				placement = 'right';
+        if (placement != "above" && placement != "below"){
+          if(window.event.pageX < 296)
+          {
+                  placement = 'right';
+          }
+          if(screen.width <  this.$element[0].offsetWidth + $(this.$element[0]).offset().left + actualWidth)
+          {
+              placement = 'left';
+          }
+          if( pos.top + pos.height / 2 - actualHeight / 2 < 40){
+              placement = 'below'
+          }
         }
-        if(screen.width <  this.$element[0].offsetWidth + $(this.$element[0]).offset().left + actualWidth)
-        {
-            placement = 'left';
-        }
-		if( pos.top + pos.height / 2 - actualHeight / 2 < 40){
-    		placement = 'below'
-		}
+
 		
         switch (placement) {
           case 'below':
