@@ -8,7 +8,12 @@ module TweetsHelper
   end
 
   def get_short_content(tweet)
-    truncate(get_content(tweet), :length => 50).chomp
+    if tweet[:retweeted_status]
+      image_tag("icons/retweet.png", :style => "vertical-align: middle;") + 
+      truncate(get_content(tweet), :length => 50).chomp
+    else
+      truncate(get_content(tweet), :length => 50).chomp
+    end
   end
 
   def get_all_content(tweet)
