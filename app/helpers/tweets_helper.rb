@@ -22,7 +22,7 @@ module TweetsHelper
 
     if tweet.thumbnail_pic
       html << "<br />"
-      html << image_tag(tweet.bmiddle_pic, :id => "popover-thumb", :alt => tweet.original_pic)
+      html << link_to(image_tag(tweet.bmiddle_pic, :id => "popover-thumb", :alt => tweet.original_pic), get_pic(tweet), "data-controls-modal" => "modal-from-dom#{@i}", "data-backdrop" => "true", "data-keyboard" => "true") 
     end
     
     if tweet.retweeted_status
@@ -46,7 +46,7 @@ module TweetsHelper
         nil
       end
     elsif tweet.original_pic
-      tweet.original_pic
+      tweet.bmiddle_pic
     else
       nil
     end

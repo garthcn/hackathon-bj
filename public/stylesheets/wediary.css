@@ -17,8 +17,37 @@ li.tweet-box div.danger {
 }
 
 img.origin_pic {
-  width:700px;
+  max-width:540px;
   display: block;
   margin-left:auto;
   margin-right:auto;
 }
+
+button.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #737373;
+	padding: 7px 30px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#cccccc);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		to(#cccccc));
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #adadad;
+	-moz-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 0px 0px rgba(087,087,087,0.6);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 0px 0px rgba(087,087,087,0.6);
+	text-shadow:
+		1px 1px 1px rgba(255,255,255,1),
+		0px -1px 0px rgba(204,204,204,0.8);
+}
+

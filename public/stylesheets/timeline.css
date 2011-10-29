@@ -7,6 +7,12 @@
 	margin:0 5px 50px;
 }
 
+ul.eventList {
+  max-height: 600px;
+  overflow-y: auto;
+
+}
+
 .eventList li{
 	/* The individual events */
 	background:#F4F4F4;

@@ -2077,8 +2077,9 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   top: 50%;
   left: 50%;
   z-index: 11000;
-  width: 800px;
-  margin: -250px 0 0 -350px;
+  width: 600px;
+  /*max-height: 650px;*/
+  margin: -250px 0 0 -300px;
   background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -2115,6 +2116,9 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 .modal-body {
   padding: 15px;
+  width: 570px;
+  max-height: 500px;
+  overflow-y: auto;
 }
 .modal-footer {
   background-color: #f5f5f5;
