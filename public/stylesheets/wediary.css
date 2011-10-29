@@ -25,29 +25,29 @@ img.origin_pic {
 
 button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	color: #737373;
-	padding: 7px 30px;
+	font-size: 18px;
+	color: #ffffff;
+	padding: 10px 60px;
 	background: -moz-linear-gradient(
 		top,
-		#ffffff 0%,
-		#cccccc);
+		#1d211d 0%,
+		#b8bfd6);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#ffffff),
-		to(#cccccc));
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border: 1px solid #adadad;
+		from(#1d211d),
+		to(#b8bfd6));
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #134201;
 	-moz-box-shadow:
-		0px 1px 0px rgba(255,255,255,1),
-		inset 0px 0px 0px rgba(087,087,087,0.6);
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
 	-webkit-box-shadow:
-		0px 1px 0px rgba(255,255,255,1),
-		inset 0px 0px 0px rgba(087,087,087,0.6);
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
 	text-shadow:
-		1px 1px 1px rgba(255,255,255,1),
-		0px -1px 0px rgba(204,204,204,0.8);
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
 }
 
