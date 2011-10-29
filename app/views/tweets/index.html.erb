@@ -19,7 +19,7 @@
      });
 });
  $(function () {
-        $("p[rel=popover]").popover({ offset: 10}).click(function(e) {
+        $("p[rel=popover]").popover({ offset: 10, html: true}).click(function(e) {
                   e.preventDefault()
                 })
             })
@@ -38,7 +38,7 @@
           <% group[:tweets].each do |tweet| %>
             <li class=''>
             <span class="icon" title=""></span>
-			<%= content_tag(:p, get_short_content(tweet), :class => "danger", :rel => "popover", "data-content" => tweet.text, "data-original-title" => "content" )%>
+			<%=content_tag(:p,get_short_content(tweet), :class => "danger", :rel => "popover", "data-content" => get_all_content(tweet), "data-original-title" => "content" )%>
             </li>
           <% end %>
         </ul>

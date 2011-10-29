@@ -14,7 +14,7 @@ module TweetsHelper
   def get_all_content(tweet)
     html = ""
     html << tweet.text
-    html << "#{tweet.retweeted_status.text}" if tweet.retweeted_status
+    html << "<div class='well' style='margin-top:15px'>#{tweet.retweeted_status.text}</div>" if tweet.retweeted_status
     html
   end
 end
