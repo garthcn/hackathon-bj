@@ -87,6 +87,7 @@ function updateTimelineBar() {
   $("#timelineBar").css("padding-left", paddingWidth + perWidth/2 + "px");
   $("#timelineBar").data("left", paddingWidth + perWidth/2);
   $("#timelineBar").css("padding-right", paddingWidth + "px");
+  $("#timelineBar").width(screenWidth - perWidth/2 - paddingWidth * 2);
   $("#timelineBar .grid").each(function(grid){
     var width = $(this).attr("count")/ratio;
     if (width < 1) width = 1;
