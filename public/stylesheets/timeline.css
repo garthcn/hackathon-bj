@@ -83,7 +83,7 @@ div.content{
 	overflow-y:hidden;
     overflow-x:scroll;
 	padding-top:10px;
-    max-height: 660px;
+    max-height: 1000px;
 	margin:5px 0;
 }
 
