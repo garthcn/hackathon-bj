@@ -15,7 +15,6 @@ class TweetsController < ApplicationController
   def index
     @tweets = Weibo::Base.new(@oauth).user_timeline({:count => 100})
     @grouped_tweets = group_tweets(@tweets)
-    p @tweets[0]
 
     respond_to do |format|
       format.html { render "tweets/index" }
