@@ -1,3 +1,5 @@
 *.lock
 log
 log/*
+*.DS_Store
+*.sw?
