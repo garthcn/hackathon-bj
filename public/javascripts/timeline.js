@@ -8,7 +8,10 @@ $(document).ready(function(){
 	/* Each event section is 320 px wide */
 	var timelineWidth = PER_WIDTH*tot;
     var screenWidth = $(document).width();
+    var screenHeight = window.innerHeight;
 	$('#timelineScroll').width(timelineWidth);
+    console.log(screenHeight);
+    $('#timelineLimiter').height(screenHeight - 140);
 
     /* initialize the timeline bar view in the bottom */
     updateTimelineBar();
