@@ -7,36 +7,29 @@
     }
   </style>
 <% end %>
-<script>
-  $(document).ready(function() {
-    $('#aaa').popover({});
-  });
-</script>
-<div>
-  <a id="aaa" href="#" class="btn danger" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">hover for popover</a>
-</div>
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
-    <% @grouped_tweets.each do |group| %>
+    <% colors = %w(green blue chreme) %>
+    <% @grouped_tweets.each_with_index do |group, index| %>
       <div class="event">
-        <div class="eventHeading"><%= group[:time].strftime("%Y%m%d") %></div>
+        <div class="eventHeading <%= colors[index % 3] %>"><%= group[:time].strftime("%Y%m%d") %></div>
         <ul class="eventList">
           <% group[:tweets].each do |tweet| %>
             <li class=''>
-              <span class="icon" title=""></span>
-              <%= get_short_content(tweet) %>
-              <div class="content">
-                <div class="body">
-                  <%= tweet.text %>
-                  <br />
-                  <%= get_content(tweet) %>
-                  <% if !tweet.bmiddle_pic.blank? %>
-                    <img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
-                  <% end %>
-                </div>
-                <div class="title"><%= tweet.text %></div>
-                <div class="date"><%= tweet.created %></div>
+            <span class="icon" title=""></span>
+            <%= get_short_content(tweet) %>
+            <div class="content">
+              <div class="body">
+                <%= tweet.text %>
+                <br/>
+                <%= get_content(tweet) %>
+                <% if !tweet.bmiddle_pic.blank? %>
+                  <img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
+                <% end %>
               </div>
+              <div class="title"><%= tweet.text %></div>
+              <div class="date"><%= tweet.created %></div>
+            </div>
             </li>
           <% end %>
         </ul>
