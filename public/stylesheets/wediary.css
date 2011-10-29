@@ -12,3 +12,13 @@
     width: 0px;
     height: 0px;
 }
+li.tweet-box div.danger {
+  padding:5px;
+}
+
+img.origin_pic {
+  width:700px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+}

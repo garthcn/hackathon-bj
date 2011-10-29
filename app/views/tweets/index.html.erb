@@ -19,7 +19,7 @@
      });
 });
  $(function () {
-        $("p[rel=popover]").popover({ offset: 10, html: true, delayOut: 100}).click(function(e) {
+        $("div[rel=popover]").popover({ offset: 10, html: true, delayOut: 200}).click(function(e) {
                   e.preventDefault()
                 })
             })
@@ -29,14 +29,26 @@
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
     <% colors = %w(green blue chreme) %>
+    <% @i = 0 %>
     <% @grouped_tweets.each_with_index do |group, index| %>
       <div class="event">
         <div class="eventHeading <%= colors[index % 3] %>"><%= group[:time].strftime("%Y-%m-%d") %></div>
         <ul class="eventList">
           <% group[:tweets].each do |tweet| %>
-            <li class=''>
-            <span class="icon" title=""></span>
-			<%=content_tag(:p,get_short_content(tweet), :class => "danger", :rel => "popover", "data-content" => get_all_content(tweet), "data-original-title" => Time.at(tweet.created_at).strftime('%b %d %R')) %>
+            <% @i += 1 %>
+            <li class='tweet-box'>
+              <%=content_tag(:div,get_short_content(tweet), :class => "danger", :rel => "popover", "data-content" => get_all_content(tweet), "data-original-title" => Time.at(tweet.created_at).strftime('%b %d %R')) %>
+
+              <div id="modal-from-dom<%= @i %>" class="modal hide fade" style="display: none; ">
+                          <div class="modal-header">
+                            <a href="#" class="close">×</a>
+                            <h3></h3>
+                          </div>
+                          <div class="modal-body">
+                            <img class ="origin_pic" src =<%= get_pic(tweet) %>>
+                          </div>
+              </div>
+            
             </li>
           <% end %>
         </ul>

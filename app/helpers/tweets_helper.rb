@@ -25,11 +25,25 @@ module TweetsHelper
       html << "#{tweet.retweeted_status.text}"
       if tweet.retweeted_status.thumbnail_pic
         html << "<br />"
-        html << image_tag(tweet.retweeted_status.bmiddle_pic, :id => "popover-thumb", :alt => tweet.retweeted_status.original_pic)
+        html << link_to(image_tag(tweet.retweeted_status.bmiddle_pic, :id => "popover-thumb", :alt => tweet.retweeted_status.original_pic), get_pic(tweet), "data-controls-modal" => "modal-from-dom#{@i}", "data-backdrop" => "true", "data-keyboard" => "true") 
       end
       html << "</div>" 
     end
 
     html
+  end
+
+  def get_pic(tweet) 
+    if tweet.retweeted_status
+      if tweet.retweeted_status.original_pic
+        tweet.retweeted_status.original_pic
+      else 
+        nil
+      end
+    elsif tweet.original_pic
+      tweet.original_pic
+    else
+      nil
+    end
   end
 end
