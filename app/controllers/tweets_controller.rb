@@ -1,4 +1,10 @@
 class TweetsController < ApplicationController
+
+  # Landing Page
+  def welcome
+    # For demo usage: non-sense senteces
+    @crap = "Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."
+  end
   # GET /tweets
   # GET /tweets.xml
   def index

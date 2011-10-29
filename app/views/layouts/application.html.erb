@@ -3,38 +3,22 @@
   <head>
     <title>WeiboDiary</title>
     <%= stylesheet_link_tag :all %>
-    <%= stylesheet_link_tag 'http://twitter.github.com/bootstrap/assets/css/bootstrap-1.0.0.min.css', 
-      :media => 'screen' %>
+    <%= stylesheet_link_tag 'bootstrap.css', :media => 'screen' %>
 
-      <%= javascript_include_tag :defaults %>
-      <%= csrf_meta_tag %>
-    </head>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
 
-    <body>
-      <%= render('layouts/header') %>
+  <body>
+    <%= render('layouts/header') %>
 
-      <div class="container">
-        <div>
-          <% if flash[:notice] %>
-            <div class="alert-message info">
-              <p><strong><%= flash[:notice] %></strong></p>
-            </div>
-          <% elsif flash[:error] %>
-            <div class="alert-message error">
-              <p><strong><%= flash[:error] %></strong></p>
-            </div>
-          <% elsif flash[:warning] %>
-            <div class="alert-message warning">
-              <p><strong><%= flash[:warning] %></strong></p>
-            </div>				
-          <% end %>
-        </div>
-
-        <div>
-          <%= yield %>
-        </div>
-      </div>
-    </body>
-  </html>
+    <div class="container">
+      <%= yield %>
+      <footer>
+        <p>Hackathon Beijing 2011</p>
+      </footer>
+    </div>
+  </body>
+</html>
 
 
