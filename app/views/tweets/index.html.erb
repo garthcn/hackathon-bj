@@ -1,11 +1,23 @@
 <% content_for :head do %>
   <%= javascript_include_tag "timeline.js" %>
+  <%= javascript_include_tag "iscroll.js" %>
   <style>
     /* The following is customized css */
     .fluid {
       width: auto;
     }
   </style>
+  <script>
+ $(function(){
+        myScroll = new iScroll('timelineScroll', {
+        snap:true,
+        momentum:false,
+        hScrollbar:false,
+        onScrollEnd: function () {
+        }
+     });
+});
+  </script>
 <% end %>
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->

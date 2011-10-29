@@ -2,7 +2,7 @@ WeiboDiary::Application.routes.draw do
   #resources :tweets
 
   #resources :users
-  root :to => "tweets#home"
+  root :to => "users#connect"
   match ':controller/:action'
 
   # The priority is based upon order of creation:
