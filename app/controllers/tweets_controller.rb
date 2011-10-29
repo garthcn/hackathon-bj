@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_filter :authorize, :except => :home
+  TIME_SPAN = 24 * 3600
   # Landing Page
   def home
     if check_authorize 
@@ -13,6 +14,7 @@ class TweetsController < ApplicationController
   # GET /tweets.xml
   def index
     @tweets = Weibo::Base.new(@oauth).user_timeline({:count => 100})
+    @grouped_tweets = group_tweets(@tweets)
 
     respond_to do |format|
       format.html { render "tweets/index" }
@@ -35,15 +37,24 @@ class TweetsController < ApplicationController
 
   protected
     def group_tweets tweets
+      tweets.each {|t| t.created_at = Time.parse(t.created_at).to_i}
       tweets.sort! {|t1, t2| t1.created_at <=> t2.created_at}
       grouped = []
       last_time = nil
-      group = []
+      group = nil
       tweets.each do |tweet|
-        t = tweet.created_at.to_i / 3600 # get hour
+        t = tweet.created_at / TIME_SPAN # get hour
         if t != last_time
+          grouped << group if group 
+          group = { :time => Time.at(t * TIME_SPAN), :tweets => [] }
+          group[:tweets].push tweet
+          last_time = t
+        else
+          group[:tweets].push tweet
         end
       end
+      grouped << group if group
+      grouped
     end
 
 end
