@@ -2276,7 +2276,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-radius: 3px 3px 0 0;
   border-bottom: 1px solid #eee;
 }
-.popover .content {
+.popover .content_tip {
   background-color: #ffffff;
   padding: 14px;
   -webkit-border-radius: 0 0 3px 3px;
