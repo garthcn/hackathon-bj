@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   def get_timeline
     oauth = Weibo::OAuth.new(Weibo::Config.api_key, Weibo::Config.api_secret)
     oauth.authorize_from_access(session[:atoken], session[:asecret])
-    timeline = Weibo::Base.new(oauth).user_timeline
-    render :text => timeline.to_json
+    @tweeks = Weibo::Base.new(oauth).user_timeline
+    render :action => "tweeks"
   end
 
 end

@@ -1,0 +1,47 @@
+<% content_for :head do %>
+  <script src="javascripts/timeline.js"></script>
+<% end %>
+<div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
+  <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
+    <% @tweeks.each do |tweak| %>
+      <div class="event">
+        <div class="eventHeading"><%= tweak.created_at %></div>
+        <ul class="eventList">
+          <li class=''>
+          <span class="icon" title=""></span>
+          <%= tweak.text %>
+          <div class="content">
+            <div class="body">
+              <%= tweak.text %>
+            </div>
+            <div class="title"><%= tweak.text %></div>
+            <div class="date"><%= tweak.created %></div>
+          </div>
+
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="clear"></div>
+  </div>
+
+  <div id="scroll"> <!-- The year time line -->
+    <div id="centered"> <!-- Sized by jQuery to fit all the years -->
+      <div id="highlight"></div> <!-- The light blue highlight shown behind the years -->
+      <% @tweeks.each do |tweak| %>
+        <div class="scrollPoints"><%= tweak.created_at %></div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="slider"> <!-- The slider container -->
+    <div id="bar"> <!-- The bar that can be dragged -->
+      <div id="barLeft"></div>  <!-- Left arrow of the bar -->
+      <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
+    </div>
+  </div>
+
+</div>
+
