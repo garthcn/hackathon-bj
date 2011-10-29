@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, :except => :home
   # Landing Page
   def home
     if check_authorize 
