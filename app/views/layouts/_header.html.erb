@@ -1,22 +1,9 @@
-<script>
-  $(document).ready(function() {
-    $('.').click(function() { 
-      if ($(this).hasClass() {
-        $(this).removeClass("active"); 
-      } else {
-        $(this).addClass("gt_active"); 
-      }
-    }); 
-  });
-</script>
-
 <div class="topbar">
   <div class="fill">
     <div class="container">
       <h3><%= link_to "WeDiary", '/', :class => 'logo' %></h3>
       <ul>
         <li class="active"><%= link_to "Home", "/" %></li>
-        <li><%= link_to "My Story", "/tweets/index" %></li>
         <li><%= link_to "Friends' Story", "/tweets/friends_timeline" %></li>
         <li><%= link_to "About", "/users/welcome" %></li>
       </ul>
