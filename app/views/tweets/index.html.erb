@@ -9,9 +9,10 @@
 <% end %>
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
-    <% @grouped_tweets.each do |group| %>
+    <% colors = %w(green blue chreme) %>
+    <% @grouped_tweets.each_with_index do |group, index| %>
       <div class="event">
-        <div class="eventHeading"><%= group[:time].strftime("%Y%m%d") %></div>
+        <div class="eventHeading <%= colors[index % 3] %>"><%= group[:time].strftime("%Y%m%d") %></div>
         <ul class="eventList">
           <% group[:tweets].each do |tweet| %>
             <li class=''>
