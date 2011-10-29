@@ -60,22 +60,11 @@
     <div class="clear"></div>
   </div>
 
-  <div id="scroll"> <!-- The year time line -->
-    <div id="centered"> <!-- Sized by jQuery to fit all the years -->
-      <div id="highlight"></div> <!-- The light blue highlight shown behind the years -->
-      <% @grouped_tweets.each do |group| %>
-        <div class="scrollPoints"><%= group[:time].strftime("%Y%m%d") %></div>
-      <% end %>
-      <div class="clear"></div>
-    </div>
-  </div>
-
-  <div id="slider"> <!-- The slider container -->
-    <div id="bar"> <!-- The bar that can be dragged -->
-      <div id="barLeft"></div>  <!-- Left arrow of the bar -->
-      <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
-    </div>
-  </div>
-
 </div>
 
+<div id="timelineBar">
+  <div id="highlight"></div>
+  <% @grouped_tweets.each do |group| %>
+    <div class="grid" count="<%= group[:tweets].length %>"></div>
+  <% end %>
+</div>
