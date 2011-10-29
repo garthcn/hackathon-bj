@@ -14,44 +14,6 @@ $(document).ready(function(){
 	var screenWidth = $(document).width();
 	
 	$('#timelineScroll').width(timelineWidth);
-	
-	/* If the timeline is wider than the screen show the slider: */
-	if(timelineWidth > screenWidth)
-	{
-		$('#scroll,#slider').show();
-		$('#centered,#slider').width(120*tot);
-		
-		/* Making the scrollbar draggable: */
-		$('#bar').width((120/320)*screenWidth).draggable({
-
-			containment: 'parent',
-			drag: function(e, ui) {
-	
-				if(!this.elem)
-				{
-					/* This section is executed only the first time the function is run for performance */
-					
-					this.elem = $('#timelineScroll');
-					
-					/* The difference between the slider's width and its container: */
-					this.maxSlide = ui.helper.parent().width()-ui.helper.width();
-
-					/* The difference between the timeline's width and its container */
-					this.cWidth = this.elem.width()-this.elem.parent().width();
-					this.highlight = $('#highlight');
-				}
-				
-				/* Translating each movement of the slider to the timeline: */
-				this.elem.css({marginLeft:'-'+((ui.position.left/this.maxSlide)*this.cWidth)+'px'});
-				
-				/* Moving the highlight: */
-				this.highlight.css('left',ui.position.left)
-			}
-		});
-		
-		$('#highlight').width((120/320)*screenWidth-3);
-	}
-	
 });
 
 function showWindow(data)

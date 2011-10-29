@@ -1,5 +1,11 @@
 <% content_for :head do %>
   <%= javascript_include_tag "timeline.js" %>
+  <style>
+    /* The following is customized css */
+    .fluid {
+      width: auto;
+    }
+  </style>
 <% end %>
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
