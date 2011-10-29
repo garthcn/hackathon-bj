@@ -93,7 +93,14 @@
         actualHeight = $tip[0].offsetHeight
 
         placement = maybeCall(this.options.placement, this, [ $tip[0], this.$element[0] ])
-
+        if(window.event.pageX < 296)
+        {
+            placement = 'right';
+        }
+        if(screen.width <  this.$element[0].offsetWidth + $(this.$element[0]).offset().left + actualWidth)
+        {
+            placement = 'left';
+        }
         switch (placement) {
           case 'below':
             tp = {top: pos.top + pos.height + this.options.offset, left: pos.left + pos.width / 2 - actualWidth / 2}
