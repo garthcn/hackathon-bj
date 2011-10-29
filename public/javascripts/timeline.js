@@ -10,8 +10,7 @@ $(document).ready(function(){
     var screenWidth = $(document).width();
     var screenHeight = window.innerHeight;
 	$('#timelineScroll').width(timelineWidth);
-    console.log(screenHeight);
-    $('#timelineLimiter').height(screenHeight - 140);
+    $('#timelineLimiter').height(screenHeight - 130);
 
     /* initialize the timeline bar view in the bottom */
     updateTimelineBar();
@@ -83,7 +82,6 @@ function updateTimelineBar() {
   var count = $("#timelineBar .grid").length;
   var perWidth = parseInt(screenWidth / count);
   var less = screenWidth - perWidth * count;
-  var mod = parseInt(count / less);
   var idx = 0;
   $("#timelineBar .grid").each(function(grid){
     var width = parseInt($(this).attr("count")/ratio);
@@ -91,7 +89,7 @@ function updateTimelineBar() {
     if (width > perWidth - 2) width = perWidth - 2;
     $(this).width(width);
     var x = 0;
-    if (idx % mod == 1) x = 1;
+    if (idx < less) x = 1;
     idx += 1;
     $(this).css("margin-left", Math.floor((perWidth - width + x)/2) + "px");
     $(this).css("margin-right", Math.ceil((perWidth - width + x)/2) + "px");
