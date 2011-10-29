@@ -10,4 +10,11 @@ module TweetsHelper
   def get_short_content(tweet)
     truncate(get_content(tweet), :length => 50).chomp
   end
+
+  def get_all_content(tweet)
+    html = ""
+    html << tweet.text
+    html << "#{tweet.retweeted_status.text}" if tweet.retweeted_status
+    html
+  end
 end

@@ -24,7 +24,7 @@
     <% colors = %w(green blue chreme) %>
     <% @grouped_tweets.each_with_index do |group, index| %>
       <div class="event">
-        <div class="eventHeading <%= colors[index % 3] %>"><%= group[:time].strftime("%Y%m%d") %></div>
+        <div class="eventHeading <%= colors[index % 3] %>"><%= group[:time].strftime("%Y-%m-%d") %></div>
         <ul class="eventList">
           <% group[:tweets].each do |tweet| %>
             <li class=''>
@@ -32,9 +32,18 @@
             <%= get_short_content(tweet) %>
             <div class="content">
               <div class="body">
-                <%= tweet.text %>
-                <br/>
-                <%= get_content(tweet) %>
+                <div class="well">
+                  <% if tweet.retweeted_status %>
+                    <%= tweet.text %>
+                    <br />
+                    <br />
+                    <div class="well">
+                      <%= get_content(tweet) %>
+                    </div>
+                  <% else %>
+                    <%= tweet.text %>
+                  <% end %>
+                </div>
                 <% if !tweet.bmiddle_pic.blank? %>
                   <img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
                 <% end %>
