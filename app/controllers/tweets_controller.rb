@@ -23,11 +23,14 @@ class TweetsController < ApplicationController
   end
 
   def friends_timeline
-    @tweets = Weibo::Base.new(@oauth).friends_timeline
+    @tweets = Weibo::Base.new(@oauth).friends_timeline({:count => 200})
+    @grouped_tweets = group_tweets(@tweets)
+
     respond_to do |format|
-      format.html { render "/tweets/friends_timeline" }
+      format.html { render "tweets/index" }
       format.xml  { render :xml => @tweets }
     end
+
   end    
 
   # GET /tweets/1
