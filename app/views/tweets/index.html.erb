@@ -66,5 +66,9 @@
   <div id="highlight"></div>
   <% @grouped_tweets.each do |group| %>
     <div class="grid" count="<%= group[:tweets].length %>"></div>
+    <%= content_tag(:div, "", :count => group[:tweets].length, 
+          :class => "grid danger", 
+          "data-content" => group[:time].strftime("%Y-%m-%d"), 
+          "data-title"   => "Total tweet: %d" % group[:tweets].length) %>
   <% end %>
 </div>

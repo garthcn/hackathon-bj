@@ -41,6 +41,8 @@ $(document).ready(function(){
         $("#timelineLimiter").scrollLeft(left);
       }
     });
+
+    //$("div.grid").popover({placement: "top"});
 });
 
 function showWindow(data)
@@ -77,7 +79,7 @@ function showWindow(data)
 }
 
 function updateTimelineBar() {
-  var ratio = 0.5;
+  var ratio = 0.3;
   var screenWidth = $(document).width();
   var count = $("#timelineBar .grid").length;
   var perWidth = parseInt(screenWidth / count);
