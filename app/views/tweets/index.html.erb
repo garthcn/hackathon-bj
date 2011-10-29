@@ -1,0 +1,67 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "timeline.js" %>
+  <style>
+    /* The following is customized css */
+    .fluid {
+      width: auto;
+    }
+  </style>
+<% end %>
+<script>
+  $(document).ready(function() {
+    $('#aaa').popover({});
+  });
+</script>
+<div>
+  <a id="aaa" href="#" class="btn danger" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">hover for popover</a>
+</div>
+<div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
+  <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
+    <% @grouped_tweets.each do |group| %>
+      <div class="event">
+        <div class="eventHeading"><%= group[:time].strftime("%Y%m%d") %></div>
+        <ul class="eventList">
+          <% group[:tweets].each do |tweet| %>
+            <li class=''>
+              <span class="icon" title=""></span>
+              <%= get_short_content(tweet) %>
+              <div class="content">
+                <div class="body">
+                  <%= tweet.text %>
+                  <br />
+                  <%= get_content(tweet) %>
+                  <% if !tweet.bmiddle_pic.blank? %>
+                    <img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
+                  <% end %>
+                </div>
+                <div class="title"><%= tweet.text %></div>
+                <div class="date"><%= tweet.created %></div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="clear"></div>
+  </div>
+
+  <div id="scroll"> <!-- The year time line -->
+    <div id="centered"> <!-- Sized by jQuery to fit all the years -->
+      <div id="highlight"></div> <!-- The light blue highlight shown behind the years -->
+      <% @grouped_tweets.each do |group| %>
+        <div class="scrollPoints"><%= group[:time].strftime("%Y%m%d") %></div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="slider"> <!-- The slider container -->
+    <div id="bar"> <!-- The bar that can be dragged -->
+      <div id="barLeft"></div>  <!-- Left arrow of the bar -->
+      <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
+    </div>
+  </div>
+
+</div>
+

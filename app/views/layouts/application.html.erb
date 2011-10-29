@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeiboDiary</title>
+    <title>WeDiary</title>
     <%= stylesheet_link_tag 'bootstrap.css', :media => 'screen' %>
     <%= stylesheet_link_tag "timeline.css" %>
 
     <%= javascript_include_tag "/javascripts/jquery.min.js" %>
     <%= javascript_include_tag "/javascripts/jquery-ui.min.js" %>
     <%= javascript_include_tag "/javascripts/bootstrap-modal.js" %>
+    <%= javascript_include_tag "/javascripts/bootstrap-twipsy.js" %>
+    <%= javascript_include_tag "/javascripts/bootstrap-popover.js" %>
 
     <%= yield :head %>
     <%= csrf_meta_tag %>
@@ -21,7 +23,7 @@
       <br />
         <%= yield %>
       <footer>
-        <p>Hackathon Beijing 2011</p>
+        <p style="text-align:center">Hackathon Beijing 2011</p>
       </footer>
     </div>
   </body>

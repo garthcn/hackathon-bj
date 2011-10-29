@@ -21,4 +21,18 @@ class ApplicationController < ActionController::Base
     return result
   end
 
+  def get_user
+    begin
+      authorize
+      @user = Weibo::Base.new(@oauth).user_show()
+      #@tweets = Weibo::Base.new(@oauth).user_timeline({:count => 100})
+      p @user
+      #p @tweets
+    rescue
+      p $!
+      nil
+    end
+  end
+  helper_method :check_authorize, :get_user
+
 end

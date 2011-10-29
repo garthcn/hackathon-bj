@@ -15,6 +15,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Weibo::Base.new(@oauth).user_timeline({:count => 100})
     @grouped_tweets = group_tweets(@tweets)
+    p @tweets[0]
 
     respond_to do |format|
       format.html { render "tweets/index" }
@@ -38,7 +39,7 @@ class TweetsController < ApplicationController
   protected
     def group_tweets tweets
       tweets.each {|t| t.created_at = Time.parse(t.created_at).to_i}
-      tweets.sort! {|t1, t2| t1.created_at <=> t2.created_at}
+      tweets.sort! {|t2, t1| t1.created_at <=> t2.created_at}
       grouped = []
       last_time = nil
       group = nil
