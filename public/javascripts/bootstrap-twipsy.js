@@ -83,7 +83,6 @@
           .css({ top: 0, left: 0, display: 'block' })
           .prependTo(this.$element);
           //.prependTo(document.body)
-        console.log(this.$element, this.$element.position());
 
         pos = $.extend({}, this.$element.position(), {
           width: this.$element[0].offsetWidth
