@@ -10,6 +10,7 @@
   </style>
   <script>
  $(function(){
+   if ("onorientationchange" in window) {
         myScroll = new iScroll('timelineScroll', {
         snap:true,
         momentum:false,
@@ -17,6 +18,7 @@
         onScrollEnd: function () {
         }
      });
+   }
 });
  $(function () {
         $("div[rel=popover]").popover({ offset: 10, html: true, delayOut: 200}).click(function(e) {
