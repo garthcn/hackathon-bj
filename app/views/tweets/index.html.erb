@@ -1,6 +1,31 @@
 <% content_for :head do %>
   <%= javascript_include_tag "timeline.js" %>
+  <%= javascript_include_tag "/javascripts/bootstrap-modal.js" %>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function()
+    {
+    $('#modal').modal('backdrop');
+    });
+</script>
+
+<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn danger" id="modal">Launch Modal</button>
+<div id="modal-from-dom" class="modal hide fade">
+            <div class="modal-header">
+              <a href="#" class="close">×</a>
+              <h3>Modal Heading</h3>
+            </div>
+            <div class="modal-body">
+              <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn primary">Primary</a>
+              <a href="#" class="btn secondary">Secondary</a>
+            </div>
+</div>
+
+
+
 <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
   <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
     <% @grouped_tweets.each do |group| %>
@@ -46,6 +71,7 @@
       <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
     </div>
   </div>
+
 
 </div>
 
