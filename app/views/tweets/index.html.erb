@@ -14,7 +14,9 @@
             <div class="content">
               <div class="body">
                 <%= tweet.text %>
-				<img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
+                <% if !tweet.bmiddle_pic.blank? %>
+                  <img border="0" src="<%= tweet.bmiddle_pic %>" alt="picture" width="490" />
+                <% end %>
               </div>
               <div class="title"><%= tweet.text %></div>
               <div class="date"><%= tweet.created %></div>
