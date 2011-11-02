@@ -1,3 +1,9 @@
 development:
   api_key: 779594116
   api_secret: cae09b103fccc2ba40eac829a2d9bda0
+production:
+  api_key: 779594116
+  api_secret: cae09b103fccc2ba40eac829a2d9bda0
+test:
+  api_key: 779594116
+  api_secret: cae09b103fccc2ba40eac829a2d9bda0
